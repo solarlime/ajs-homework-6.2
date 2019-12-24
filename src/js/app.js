@@ -8,7 +8,9 @@ function Character(name, type) {
 
 Character.prototype.damage = function damage(points = 0) {
   this.health -= points * (1 - this.defence / 100);
-  this.health < 0 ? this.health = 0 : this.health;
+  if (this.health < 0) {
+    this.health = 0;
+  }
   return this;
 };
 
